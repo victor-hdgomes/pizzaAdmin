@@ -46,15 +46,15 @@ const NovoProduto = () => {
             createdBy: user.displayName
         })
 
-        toast.success("Produto criado com sucesso.")
+        toast.success("Pedido criado com sucesso.")
 
-        navigate("/")
+        navigate("/pedidos")
     }
 
     return (
         <div className="novopedido">
-            <h2>Criar novo produto</h2>
-            <p>Crie um novo produto para impulsionar suas vendas.</p>
+            <h2>Criar novo pedido</h2>
+            <p>Crie um novo pedido para impulsionar suas vendas.</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Nome do cliente:</span>

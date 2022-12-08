@@ -74,7 +74,7 @@ const App = () => {
             <Route path='/registrar' element={user ? <Navigate to="/" /> : <Register />} />
 
             {/* Autenticado */}
-            <Route path='/' element={user ? <Main /> : <Navigate to="/login" />} />
+            <Route path='/' element={user ? <Main/> : <Navigate to="/login" />} />
             <Route path='/produtos' element={user ? <Produtos /> : <Navigate to="/login" />} />
             <Route path='/novoproduto' element={user ? <NovoProduto /> : <Navigate to="/login" />} />
             <Route path='/produtos/:id' element={user ? <Produto /> : <Navigate to="/login" />} />

@@ -60,10 +60,10 @@ const EditPedido = () => {
             saboresArray,
             total,
             status: false,
-            createdBy: user.displayName
+            updatedBy: user.displayName
         })
 
-        toast.success("Produto criado com sucesso.")
+        toast.success("Pedido editado com sucesso.")
 
         navigate("/pedidos")
     }
@@ -71,7 +71,7 @@ const EditPedido = () => {
     return (
         <div className="novopedido">
             <h2>Editar pedido</h2>
-            <p>Editando pedido do: {pedido.nomeCliente}.</p>
+            <p>Editando pedido do: {nomeCliente}.</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Nome do cliente:</span>

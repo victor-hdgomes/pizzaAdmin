@@ -40,7 +40,7 @@ const NovoProduto = () => {
 
         toast.success("Produto criado com sucesso.")
 
-        navigate("/")
+        navigate("/produtos")
     }
 
     return (

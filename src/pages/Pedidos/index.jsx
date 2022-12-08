@@ -3,13 +3,10 @@ import './Pedidos.css'
 import { Link } from "react-router-dom"
 
 // HOOKS
-import { useAuthValue } from '../../contexts/AuthContext'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import { useDeleteDocument } from '../../hooks/useDeleteDocument'
 
 const Pedidos = () => {
-    const { user } = useAuthValue()
-    const uid = user.uid
 
     const { documents: pedidos, loading } = useFetchDocuments("pedidos")
 

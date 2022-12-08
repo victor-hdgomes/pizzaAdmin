@@ -49,10 +49,10 @@ const EditProduto = () => {
             custo,
             venda,
             estoque: true,
-            createdBy: user.displayName
+            updatedBy: user.displayName
         })
 
-        toast.success("Produto criado com sucesso.")
+        toast.success("Produto editado com sucesso.")
 
         navigate("/produtos")
     }
