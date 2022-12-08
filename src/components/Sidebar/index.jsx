@@ -1,6 +1,17 @@
 import './Sidebar.css'
 
+import { Link } from 'react-router-dom'
+
+import { useAuthentication } from '../../hooks/useAuthentication'
+
+import { useAuthValue } from '../../contexts/AuthContext'
+
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
+
+    const { user } = useAuthValue()
+
+    const { logOut } = useAuthentication()
+
     return (
         <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
             <div className='sidebar__title'>
@@ -17,47 +28,38 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 </i>
             </div>
 
-            <div className='sidebar__menu'>
-                <div className='sidebar__link'>
-                    <a href="#">Home</a>
-                </div>
-                <h2>ADMIN</h2>
-                {/* <div className='sidebar__link'>
-                    <a href="#">Área administrativa</a>
-                </div> */}
-                {/* <div className='sidebar__link'>
-                    <a href="#">Lojas</a>
-                </div> */}
-                <div className='sidebar__link'>
-                    <a href="#">Produtos</a>
-                </div>
-                {/* <div className='sidebar__link'>
-                    <a href="#">Categorias</a>
-                </div> */}
-                <div className='sidebar__link'>
-                    <a href="#">Pedidos</a>
-                </div>
-                <h2>PESSOAS</h2>
-                <div className='sidebar__link'>
-                    <a href="#">Administradores</a>
-                </div>
-                {/* <div className='sidebar__link'>
-                    <a href="#">Usuários</a>
-                </div> */}
-                {/* <div className='sidebar__link'>
-                    <a href="#">Pagamentos e custos</a>
-                </div> */}
-                {/* <div className='sidebar__link'>
-                    <a href="#">A plataforma</a>
-                </div> */}
-                <h2>OUTROS</h2>
-                <div className='sidebar__link'>
-                    <a href="#">Política de privacidade</a>
-                </div>
-                <div className='sidebar__logout'>
-                    <a href="#">Log out</a>
-                </div>
-            </div >
+            {!user &&
+                <div className='sidebar__menu'>
+                    <p className='sidebar__p'>Bem vindo a area administrativa da PIZZA.</p>
+                    <br />
+                    <p className='sidebar__p'>Faça seu login para ter acesso a todas as informações.</p>
+                </div >
+            }
+
+            {user &&
+                <div className='sidebar__menu'>
+                    <div className='sidebar__link'>
+                        <Link to="/">Home</Link>
+                    </div>
+                    <h2>Produtos</h2>
+                    <div className='sidebar__link'>
+                        <Link to="/produtos">Listar produtos</Link>
+                    </div>
+                    <div className='sidebar__link'>
+                        <Link to="/novoproduto">Criar produto</Link>
+                    </div>
+                    <h2>Pedidos</h2>
+                    <div className='sidebar__link'>
+                        <Link to="/pedidos">Listar pedidos</Link>
+                    </div>
+                    <div className='sidebar__link'>
+                        <Link to="/novopedido">Criar pedido</Link>
+                    </div>
+                    <div className='sidebar__logout'>
+                        <button onClick={logOut}>Log out</button>
+                    </div>
+                </div >
+            }
         </div >
     )
 }

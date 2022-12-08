@@ -1,0 +1,8 @@
+.login{
+    text-align: center;
+    grid-area: main;
+}
+
+.login p{
+    color: #aaa;
+}
